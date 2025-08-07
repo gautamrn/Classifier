@@ -1,0 +1,20 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+
+# Data & outputs (never commit your raw MP3s or spectrograms)
+data/
+spectograms/
+spectrograms/
+
+# Trained models and logs
+genre_classifier_model.keras
+best_model.keras
+logs/
+*.h5
+*.pkl
+
+# VSCode / IDE settings
+.vscode/
