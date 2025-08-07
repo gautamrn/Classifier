@@ -18,5 +18,18 @@ def save_spectrogram(audio_path, save_path):
     plt.savefig(save_path, bbox_inches='tight', pad_inches=0)
     plt.close()
 
-# Test run
-save_spectrogram("data/deep/01 - Breather.mp3", "spectrograms/deep1.png")
+data_dir = "data"
+output_dir = "spectograms"
+
+for genre in os.listdir(data_dir):
+    genre_path = os.path.join(data_dir, genre)
+    
+    if not os.path.isdir(genre_path):
+        continue
+
+    for filename in os.listdir(genre_path):
+        if(filename.endswith(".mp3")):
+            audio_path = os.path.join(genre_path, filename)
+            save_path = os.path.join(output_dir, genre, filename.replace(".mp3", ".png"))
+            print(f"Processing {audio_path} -> {save_path}")
+            save_spectrogram(audio_path, save_path)
